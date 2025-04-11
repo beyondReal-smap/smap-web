@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function ContactPage() {
   return (
@@ -168,9 +169,35 @@ export default function ContactPage() {
           <p className="text-xl mb-10 max-w-3xl mx-auto">
             언제 어디서든 자녀의 위치와 일정을 확인하고, 안심할 수 있는 환경을 만들어보세요.
           </p>
-          <button className="bg-white text-blue-700 px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition">
-            앱 다운로드하기
-          </button>
+          <div className="flex flex-col gap-6 justify-center reveal" style={{transitionDelay: '0.1s'}}>
+              <div className="flex justify-center gap-8">
+                <div className="text-center">
+                  <div className="bg-white p-2 rounded-lg shadow-lg mb-2 inline-block">
+                    <Image
+                      src="/images/appStoreQR.jpg"
+                      alt="App Store QR 코드"
+                      width={120}
+                      height={120}
+                      className="rounded"
+                    />
+                  </div>
+                  <p className="text-sm text-indigo-200">App Store</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white p-2 rounded-lg shadow-lg mb-2 inline-block">
+                    <Image
+                      src="/images/googlePlayQR.jpg"
+                      alt="Google Play QR 코드"
+                      width={120}
+                      height={120}
+                      className="rounded"
+                    />
+                  </div>
+                  <p className="text-sm text-indigo-200">Google Play</p>
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-indigo-200 reveal" style={{transitionDelay: '0.3s'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
         </div>
       </section>
     </div>

@@ -10,6 +10,49 @@ export default function Home() {
   const googlePlayButtonRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
+    // 간단한 영상 재생 처리 - 복잡한 API 사용하지 않음
+    const loadVideo = () => {
+      try {
+        // 영상이 하얗게 변하는 문제 해결을 위해 iframe을 직접 조작
+        const player1Iframe = document.getElementById('youtubePlayer1') as HTMLIFrameElement;
+        const player2Iframe = document.getElementById('youtubePlayer2') as HTMLIFrameElement;
+        
+        // iframe 로드 완료 이벤트 리스너 추가
+        if (player1Iframe) {
+          player1Iframe.onload = () => {
+            console.log('Player 1 iframe loaded');
+          };
+        }
+        
+        // 영상 1 종료 후 영상 2로 전환 (5분 후 자동 전환 - 평균 영상 길이 감안)
+        setTimeout(() => {
+          if (player1Iframe && player2Iframe) {
+            console.log('Switching to video 2');
+            player1Iframe.classList.add('hidden');
+            player2Iframe.classList.remove('hidden');
+            
+            // 영상 2 종료 후 다시 영상 1로 전환 (5분 후)
+            setTimeout(() => {
+              console.log('Switching back to video 1');
+              player2Iframe.classList.add('hidden');
+              player1Iframe.classList.remove('hidden');
+            }, 5 * 60 * 1000); // 5분
+          }
+        }, 5 * 60 * 1000); // 5분
+      } catch (e) {
+        console.error('Error loading videos:', e);
+      }
+    };
+    
+    // 페이지 로드 후 약간의 지연을 두고 영상 로드
+    const timer = setTimeout(loadVideo, 1000);
+    
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleAppStoreDownload = (e: MouseEvent) => {
       e.preventDefault();
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -70,7 +113,7 @@ export default function Home() {
                 자녀의 위치와 일정을 한눈에
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed reveal" style={{transitionDelay: '0.1s'}}>
-                SMAP으로 자녀의 실시간 위치를 확인하고 일정을 효율적으로 관리하세요. 
+                SMAP으로 자녀의 실시간 위치를 확인하고 일정을 효율적으로 관리하세요.<br />
                 가족의 안전과 행복을 위한 스마트한 선택입니다.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal" style={{transitionDelay: '0.2s'}}>
@@ -113,39 +156,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 신뢰 섹션 */}
-      <section className="w-full py-12 md:py-16 relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 reveal">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">신뢰할 수 있는 서비스</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">다양한 학교 및 교육기관에서 사용 중인 SMAP의 안전하고 신뢰할 수 있는 서비스를 경험해보세요.</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            <div className="reveal" style={{transitionDelay: '0.1s'}}>
-              <div className="bg-gray-100 h-24 rounded-xl flex items-center justify-center p-6">
-                <div className="text-center text-gray-400 font-medium">학교 로고 #1</div>
-              </div>
-            </div>
-            <div className="reveal" style={{transitionDelay: '0.2s'}}>
-              <div className="bg-gray-100 h-24 rounded-xl flex items-center justify-center p-6">
-                <div className="text-center text-gray-400 font-medium">학교 로고 #2</div>
-              </div>
-            </div>
-            <div className="reveal" style={{transitionDelay: '0.3s'}}>
-              <div className="bg-gray-100 h-24 rounded-xl flex items-center justify-center p-6">
-                <div className="text-center text-gray-400 font-medium">교육기관 #1</div>
-              </div>
-            </div>
-            <div className="reveal" style={{transitionDelay: '0.4s'}}>
-              <div className="bg-gray-100 h-24 rounded-xl flex items-center justify-center p-6">
-                <div className="text-center text-gray-400 font-medium">교육기관 #2</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 서비스 소개 섹션 */}
+      {/* 더 스마트한 일상, 위치와 일정이 만나다 섹션 */}
       <section className="w-full py-16 md:py-24 bg-gradient-to-br from-white to-indigo-50 relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-100 rounded-full opacity-50 blur-3xl"></div>
@@ -154,7 +165,7 @@ export default function Home() {
           <div className="text-center mb-16 reveal">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">더 스마트한 일상, 위치와 일정이 만나다</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              SMAP은 자녀의 위치 확인과 일정 관리를 하나의 앱에서 가능하게 하는 혁신적인 서비스입니다.
+              SMAP은 자녀의 위치 확인과 일정 관리를 하나의 앱에서 가능하게 하는 혁신적인 서비스입니다.<br />
               더 이상 여러 앱을 번갈아 사용할 필요가 없습니다.
             </p>
           </div>
@@ -203,6 +214,117 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SMAP 주요 기능 섹션 */}
+      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-100 rounded-full opacity-30 blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 relative">
+          <div className="text-center mb-12 reveal">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">SMAP 주요 기능</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">자녀의 안전과 일정을 위한 SMAP의 강력한 기능들을 알아보세요.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.1s'}}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/2.webp"
+                  alt="실시간 위치 확인"
+                  fill
+                  style={{objectFit: 'cover', objectPosition: '50% 40%'}}
+                  className="transition-transform duration-500 hover:scale-103"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">실시간 위치 확인</h3>
+                <p className="text-gray-600">정확한 GPS 기술로 자녀의 현재 위치를 실시간으로 확인할 수 있습니다.</p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.2s'}}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/5.webp"
+                  alt="일정 관리"
+                  fill
+                  style={{objectFit: 'cover', objectPosition: '50% 0%'}}
+                  className="transition-transform duration-500 hover:scale-103"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">일정 관리</h3>
+                <p className="text-gray-600">학교, 학원 일정을 한 눈에 관리하고 중요한 일정을 놓치지 않도록 알림을 받을 수 있습니다.</p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.3s'}}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/4.webp"
+                  alt="내장소(안전구역) 설정"
+                  fill
+                  style={{objectFit: 'cover', objectPosition: '50% 45%'}}
+                  className="transition-transform duration-500 hover:scale-103"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">안전구역 설정</h3>
+                <p className="text-gray-600">자녀가 자주 방문하는 장소를 안전구역으로 설정하고 출입 알림을 받을 수 있습니다.</p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.4s'}}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/8.webp"
+                  alt="이동 경로 확인"
+                  fill
+                  style={{objectFit: 'cover', objectPosition: '50% 40%'}}
+                  className="transition-transform duration-500 hover:scale-103"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">이동 경로 확인</h3>
+                <p className="text-gray-600">자녀의 이동 경로를 확인하여 안전하게 목적지에 도착했는지 확인할 수 있습니다.</p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.5s'}}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/2.webp"
+                  alt="다중 사용자 관리"
+                  fill
+                  style={{objectFit: 'cover', objectPosition: '50% 80%'}}
+                  className="transition-transform duration-500 hover:scale-103"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">다중 사용자 관리</h3>
+                <p className="text-gray-600">여러 자녀의 위치와 일정을 한 앱에서 효율적으로 관리할 수 있습니다.</p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.6s'}}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/7.webp"
+                  alt="직관적인 인터페이스"
+                  fill
+                  style={{objectFit: 'cover', objectPosition: '50% 75%'}}
+                  className="transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">직관적인 인터페이스</h3>
+                <p className="text-gray-600">누구나 쉽게 사용할 수 있는 직관적인 인터페이스로 설계되었습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 동영상 콘텐츠 섹션 */}
       <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative">
@@ -238,6 +360,63 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-2">SMAP 간편 설명</h3>
                 <p className="text-gray-600">다양한 SMAP 기능 설명을 짧은 영상으로 확인하세요. 화살표를 눌러 더 많은 쇼츠를 확인할 수 있습니다.</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 비전 및 약속 섹션 */}
+      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-indigo-50 to-blue-100 relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-200 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-200 rounded-full opacity-30 blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 relative">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="reveal">
+              <div className="rounded-2xl overflow-hidden shadow-xl relative aspect-video">
+                <div id="videoContainer" className="absolute inset-0 bg-gray-100">
+                  <iframe 
+                    id="youtubePlayer1"
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/fRLxsHCvwuQ?autoplay=1&mute=1&enablejsapi=1&rel=0&showinfo=0&playsinline=1&loop=1" 
+                    title="SMAP 소개 영상" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                    className="absolute inset-0"
+                  ></iframe>
+                  <iframe 
+                    id="youtubePlayer2"
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/xOqCizxr2uk?enablejsapi=1&rel=0&showinfo=0&playsinline=1&mute=1" 
+                    title="SMAP 추가 영상" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                    className="absolute inset-0 hidden"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            
+            <div className="reveal" style={{transitionDelay: '0.2s'}}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">더 스마트한 일상, 위치와 일정이 만나다</h2>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6 space-y-1">
+                SMAP은 가족의 안전과 일상의 조화를 이끌어내는 혁신적인 위치 기반 서비스입니다. 
+                첨단 기술로 가족의 삶을 더욱 풍요롭게 만들고, 소중한 모든 순간을 함께하며, 
+                어떤 상황에서도 가족의 안전을 최우선으로 생각하는 서비스를 제공할 것을 약속드립니다.
+              </p>
+              <Link 
+                href="/features" 
+                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-medium transition duration-300 shadow-md hover:shadow-lg"
+              >
+                주요 기능 상세보기
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 ml-2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>

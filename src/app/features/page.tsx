@@ -14,76 +14,73 @@ export default function FeaturesPage() {
         <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance anim-fade-in">SMAP의 주요 기능</h1>
           <p className="text-gray-600 text-lg sm:text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-balance anim-slide-up" style={{animationDelay: '0.2s'}}>
-            자녀의 안전과 일정 관리를 위한 SMAP의 핵심 기능들을 소개합니다. 
+            자녀의 안전과 일정 관리를 위한 SMAP의 핵심 기능들을 소개합니다. <br />
             실시간 위치 확인부터 효율적인 일정 관리까지, 자녀를 위한 최고의 솔루션입니다.
           </p>
         </div>
       </section>
 
-      {/* 위치 추적 기능 */}
-      <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+      {/* 가족만의 프라이빗 공간 */}
+      <section className="w-full py-16 md:py-24 bg-teal-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl rotate-2 scale-105 opacity-20 blur-lg"></div>
-                <div className="relative bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-1 shadow-xl">
-                  <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4 anim-pulse">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-blue-600">
-                          <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <p className="text-xl font-semibold mb-2">위치 추적 화면</p>
-                      <p className="text-sm text-gray-500">실시간으로 자녀의 위치를 확인할 수 있습니다</p>
-                    </div>
+                <div className="absolute inset-0 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-xl border-2 border-white">
+                  <div className="bg-white p-4 rounded-lg">
+                    <Image
+                      src="/images/비공개그룹.webp"
+                      alt="가족만의 프라이빗 공간"
+                      width={300}
+                      height={400}
+                      className="object-contain max-h-full"
+                    />
                   </div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">실시간 모니터링</div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">실시간 위치 추적</h2>
+                <div className="inline-block px-4 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">프라이버시 보호</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">가족만의 프라이빗 공간</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                언제 어디서든 자녀의 현재 위치를 확인하세요. 정확한 GPS 기술을 활용한 
-                실시간 위치 추적으로 자녀의 안전을 확보할 수 있습니다.
+                초대제로 운영되는 안전한 그룹으로, 가족 구성원들만을 위한 비공개 그룹을 제공합니다. 
+                가족의 프라이버시를 최우선으로 지키며, 따뜻한 연결을 만들어갑니다.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">정확한 GPS 추적</p>
-                    <p className="text-gray-600 mt-1">최신 GPS 기술을 활용하여 정확한 위치 정보를 제공합니다. 오차 범위를 최소화하여 신뢰할 수 있는 위치 데이터를 확인할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">초대제 운영 시스템</p>
+                    <p className="text-gray-600 mt-1">초대를 통해서만 가입할 수 있어 안전한 가족 공간을 보장합니다. 외부인의 접근을 원천적으로 차단하여 프라이버시를 보호합니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">이동 경로 추적</p>
-                    <p className="text-gray-600 mt-1">자녀의 이동 경로를 확인할 수 있어 정확하게 어디를 방문했는지 알 수 있습니다. 일정 시간 동안의 이동 경로를 지도에서 확인할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">실시간 위치 공유</p>
+                    <p className="text-gray-600 mt-1">가족 구성원들은 언제 어디서나 서로의 위치를 실시간으로 확인할 수 있어 안심하고 소통할 수 있습니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">배터리 최적화</p>
-                    <p className="text-gray-600 mt-1">배터리 사용량을 최적화하여 자녀의 기기 배터리를 절약하면서도 정확한 위치 정보를 제공합니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">정보 보안</p>
+                    <p className="text-gray-600 mt-1">가족의 개인정보와 위치 데이터는 철저한 보안 시스템으로 보호되어 외부 유출 위험 없이 안전하게 관리됩니다.</p>
                   </div>
                 </li>
               </ul>
@@ -92,70 +89,65 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 일정 관리 기능 */}
-      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-400 to-red-600"></div>
+      {/* 최적의 이동 경로 안내 */}
+      <section className="w-full py-16 md:py-24 bg-amber-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl rotate-2 scale-105 opacity-20 blur-lg"></div>
-                <div className="relative bg-gradient-to-br from-red-500 to-red-700 rounded-2xl p-1 shadow-xl">
-                  <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4 anim-pulse">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-red-600">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                        </svg>
-                      </div>
-                      <p className="text-xl font-semibold mb-2">일정 관리 화면</p>
-                      <p className="text-sm text-gray-500">직관적인 인터페이스로 모든 일정을 한눈에</p>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
+                  <Image
+                    src="/images/최적경로.webp"
+                    alt="최적의 이동 경로 안내"
+                    width={300}
+                    height={400}
+                    className="object-contain max-h-full"
+                  />
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">효율적인 관리</div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">일정 관리</h2>
+                <div className="inline-block px-4 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">편리한 이동</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">최적의 이동 경로 안내</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                자녀의 모든 일정을 한 곳에서 체계적으로 관리하세요. 학교, 학원, 친구 만남까지 
-                모든 활동을 등록하고 알림을 받아 효율적인 일정 관리가 가능합니다.
+                현재 위치에서 다음 일정 장소까지 T-Map의 최적 경로를 바로 제공합니다. 
+                번거로운 검색 없이, 가장 빠르고 편리한 길을 안내받아 시간을 절약하세요.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">직관적인 캘린더</p>
-                    <p className="text-gray-600 mt-1">사용하기 쉬운 인터페이스로 모든 일정을 한눈에 확인하고 관리할 수 있습니다. 월간, 주간, 일간 보기를 지원합니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">T-Map 연동 시스템</p>
+                    <p className="text-gray-600 mt-1">국내 최고의 내비게이션 서비스인 T-Map과 연동되어 정확하고 신뢰할 수 있는 최적 경로를 제공합니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">반복 일정 설정</p>
-                    <p className="text-gray-600 mt-1">주간 또는 월간 반복 일정을 설정하여 정기적인 활동을 효율적으로 관리할 수 있습니다. 학교나 학원 일정을 한 번만 등록하면 됩니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">원클릭 길 안내</p>
+                    <p className="text-gray-600 mt-1">일정 장소까지 한 번의 클릭으로 바로 경로 안내를 시작할 수 있어 빠르고 편리하게 이동할 수 있습니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">중요도 설정</p>
-                    <p className="text-gray-600 mt-1">일정별 중요도를 설정하여 가장 중요한 활동에 집중할 수 있도록 합니다. 중요한 일정에 대한 특별 알림을 받을 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">실시간 교통 정보</p>
+                    <p className="text-gray-600 mt-1">실시간 교통 상황을 반영한 최적의 경로를 제공하여 이동 시간을 단축하고 효율적인 일정 관리를 도와줍니다.</p>
                   </div>
                 </li>
               </ul>
@@ -164,70 +156,65 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 안전 구역 설정 */}
-      <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-green-600"></div>
+      {/* 가족 맞춤 스마트 알림 */}
+      <section className="w-full py-16 md:py-24 bg-pink-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl rotate-2 scale-105 opacity-20 blur-lg"></div>
-                <div className="relative bg-gradient-to-br from-green-500 to-green-700 rounded-2xl p-1 shadow-xl">
-                  <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4 anim-pulse">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-green-600">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                        </svg>
-                      </div>
-                      <p className="text-xl font-semibold mb-2">안전 구역 설정 화면</p>
-                      <p className="text-sm text-gray-500">안심할 수 있는 구역을 설정하고 알림 받기</p>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
+                  <Image
+                    src="/images/스마트알림.webp"
+                    alt="가족 맞춤 스마트 알림"
+                    width={300}
+                    height={400}
+                    className="object-contain max-h-full"
+                  />
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">안전 관리</div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">안전 구역 설정</h2>
+                <div className="inline-block px-4 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium">맞춤형 알림</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">가족 맞춤 스마트 알림</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                자주 방문하는 장소를 안전 구역으로 설정하고 자녀가 해당 구역을 벗어나거나 
-                들어올 때 알림을 받을 수 있습니다. 학교, 집 등 중요한 장소를 등록하세요.
+                입력된 일정과 장소를 기반으로 부모와 자녀 모두에게 최적화된 알림을 제공합니다. 
+                중요한 약속이나 활동을 놓치지 않도록, 가족 각자의 필요에 맞춘 세심한 알림으로 하루를 더욱 체계적으로 관리할 수 있습니다.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">다양한 안전 구역 설정</p>
-                    <p className="text-gray-600 mt-1">학교, 집, 학원 등 다양한 장소를 안전 구역으로 설정할 수 있으며, 각 구역마다 반경 크기를 조절할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">일정 맞춤 알림</p>
+                    <p className="text-gray-600 mt-1">일정 시작 시간에 맞춰 적절한 시간에 알림을 받아 지각이나 중요한 활동을 놓치는 일이 없도록 도와줍니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">즉시 알림</p>
-                    <p className="text-gray-600 mt-1">자녀가 안전 구역을 벗어나거나 들어올 때 즉시 알림을 받아 빠르게 확인할 수 있습니다. 실시간 알림으로 안전을 확보하세요.</p>
+                    <p className="font-medium text-gray-900 text-lg">이중 알림 시스템</p>
+                    <p className="text-gray-600 mt-1">부모와 자녀 모두에게 알림을 전송하여 양쪽 모두 일정을 놓치지 않도록 하며, 보호자는 자녀의 일정 상태를 확인할 수 있습니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">시간 기반 관리</p>
-                    <p className="text-gray-600 mt-1">특정 시간대에만 안전 구역 알림을 받도록 설정할 수 있어 불필요한 알림을 줄이고 필요한 시간에 집중할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">알림 우선순위 설정</p>
+                    <p className="text-gray-600 mt-1">중요도에 따라 알림의 우선순위를 설정할 수 있어 중요한 일정을 더욱 잘 관리할 수 있습니다.</p>
                   </div>
                 </li>
               </ul>
@@ -236,70 +223,268 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 활동 기록 및 리포트 */}
-      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-gray-50 to-purple-50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-purple-600"></div>
+      {/* 가족의 발자취 기록 */}
+      <section className="w-full py-16 md:py-24 bg-cyan-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl rotate-2 scale-105 opacity-20 blur-lg"></div>
-                <div className="relative bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl p-1 shadow-xl">
-                  <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-4 anim-pulse">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-purple-600">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
-                        </svg>
-                      </div>
-                      <p className="text-xl font-semibold mb-2">활동 리포트 화면</p>
-                      <p className="text-sm text-gray-500">자녀의 활동을 통계적으로 확인하고 분석하기</p>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
+                  <Image
+                    src="/images/위치기록.webp"
+                    alt="가족의 발자취 기록"
+                    width={300}
+                    height={400}
+                    className="object-contain max-h-full"
+                  />
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">데이터 분석</div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">활동 기록 및 리포트</h2>
+                <div className="inline-block px-4 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">이동 기록</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">가족의 발자취 기록</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                자녀의 이동 경로와 방문 장소를 확인하고, 주간/월간 리포트를 통해 
-                생활 패턴을 파악할 수 있습니다. 자녀의 활동에 대한 통찰력을 얻으세요.
+                지난 2주 동안의 가족 이동 기록을 간편하게 조회할 수 있는 기능을 제공합니다. 
+                어디를 방문했는지, 얼마나 머물렀는지 등 상세한 정보를 확인하며, 
+                필요할 때 언제든 과거의 여정을 되짚어볼 수 있습니다.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">상세 이동 기록 확인</p>
-                    <p className="text-gray-600 mt-1">특정 날짜의 자녀 이동 경로를 시간 순서대로 확인할 수 있어 어디서 얼마나 시간을 보냈는지 알 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">2주 기록 보관</p>
+                    <p className="text-gray-600 mt-1">최근 2주간의 이동 기록을 자동으로 저장하여 필요할 때 언제든지 확인할 수 있습니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">방문 장소 통계</p>
-                    <p className="text-gray-600 mt-1">가장 자주 방문한 장소와 체류 시간을 분석하여 통계로 제공합니다. 학교, 학원, 친구 집 등 주요 장소를 파악할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">상세 방문 정보</p>
+                    <p className="text-gray-600 mt-1">각 장소별 방문 시간, 체류 시간 등 상세한 정보를 제공하여 정확한 활동 파악이 가능합니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">일정 완료율 분석</p>
-                    <p className="text-gray-600 mt-1">계획된 일정의 완료율을 확인하여 자녀의 일정 준수 상태를 파악할 수 있습니다. 효율적인 일정 관리를 지원합니다.</p>
+                    <p className="font-medium text-gray-900 text-lg">경로 시각화</p>
+                    <p className="text-gray-600 mt-1">지도 위에 이동 경로를 시각적으로 표시하여 한눈에 이동 패턴을 파악할 수 있습니다.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 스마트 일정 관리 */}
+      <section className="w-full py-16 md:py-24 bg-indigo-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2 reveal">
+              <div className="relative w-full max-w-md mx-auto">
+                <div className="absolute inset-0 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
+                  <Image
+                    src="/images/스마트일정.webp"
+                    alt="스마트 일정 관리"
+                    width={300}
+                    height={400}
+                    className="object-contain max-h-full"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
+              <div className="space-y-2">
+                <div className="inline-block px-4 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">효율적 관리</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">스마트 일정 관리</h2>
+              </div>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                부모님은 자녀의 일정을 한눈에 확인하고 직접 관리할 수 있습니다. 
+                자녀의 활동을 체계적으로 계획하고, 필요에 따라 유연하게 조정하며 
+                가족의 일상을 더욱 효율적으로 운영하세요.
+              </p>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">원격 일정 관리</p>
+                    <p className="text-gray-600 mt-1">부모님이 자녀의 일정을 원격으로 추가, 수정, 삭제할 수 있어 효율적인 일정 관리가 가능합니다.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">통합 가족 캘린더</p>
+                    <p className="text-gray-600 mt-1">가족 구성원 전체의 일정을 한 화면에서 확인할 수 있어 가족 계획을 더욱 효율적으로 조정할 수 있습니다.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">일정 동기화</p>
+                    <p className="text-gray-600 mt-1">학교 행사나 중요 일정을 모든 가족 구성원과 동기화하여 모두가 함께 준비할 수 있도록 합니다.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 유연한 그룹 관리 */}
+      <section className="w-full py-16 md:py-24 bg-orange-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div className="lg:w-1/2 reveal">
+              <div className="relative w-full max-w-md mx-auto">
+                <div className="absolute inset-0 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
+                  <Image
+                    src="/images/그룹관리.webp"
+                    alt="유연한 그룹 관리"
+                    width={300}
+                    height={400}
+                    className="object-contain max-h-full"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
+              <div className="space-y-2">
+                <div className="inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">맞춤형 설정</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">유연한 그룹 관리</h2>
+              </div>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                그룹 유효 기간과 구성원의 가입 기간을 개별적으로 설정할 수 있는 고급 관리 기능을 제공합니다. 
+                가족의 상황에 맞춰 유연하고 체계적으로 그룹을 운영하며, 더욱 편리한 환경을 만들어갑니다.
+              </p>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">기간별 설정</p>
+                    <p className="text-gray-600 mt-1">그룹의 전체 유효 기간과 각 구성원의 개별 가입 기간을 설정하여 특정 기간 동안만 위치 공유가 필요한 상황에 유용합니다.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">권한 관리</p>
+                    <p className="text-gray-600 mt-1">그룹 내 구성원별로 다양한 권한을 설정할 수 있어 정보 접근 범위를 세밀하게 조정할 수 있습니다.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">다중 그룹 관리</p>
+                    <p className="text-gray-600 mt-1">여러 그룹을 동시에 관리할 수 있어 확장 가족이나 다양한 활동 그룹을 효율적으로 운영할 수 있습니다.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 하루를 한눈에 (일일 요약) */}
+      <section className="w-full py-16 md:py-24 bg-violet-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2 reveal">
+              <div className="relative w-full max-w-md mx-auto">
+                <div className="absolute inset-0 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
+                  <Image
+                    src="/images/일일요약.webp"
+                    alt="하루를 한눈에 일일 요약"
+                    width={300}
+                    height={400}
+                    className="object-contain max-h-full"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
+              <div className="space-y-2">
+                <div className="inline-block px-4 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium">간편한 요약</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6">하루를 한눈에</h2>
+              </div>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                하루 동안의 일정 수, 이동 시간, 총 이동 거리를 한눈에 볼 수 있는 깔끔한 요약을 제공합니다. 
+                가족의 하루를 빠르게 파악하고, 다음 날을 더 효과적으로 계획하세요.
+              </p>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
+                  <div className="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">일정 통계</p>
+                    <p className="text-gray-600 mt-1">하루 동안의 전체 일정 수와 완료된 일정 수를 통계로 보여주어 일정 진행 상황을 쉽게 파악할 수 있습니다.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
+                  <div className="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">이동 분석</p>
+                    <p className="text-gray-600 mt-1">총 이동 거리와 이동 시간을 보여주어 가족의 활동량을 파악하고 효율적인 일정 계획에 도움을 줍니다.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
+                  <div className="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-lg">주간/월간 트렌드</p>
+                    <p className="text-gray-600 mt-1">일별 데이터를 기반으로 주간 및 월간 활동 트렌드를 확인할 수 있어 생활 패턴을 더 잘 이해할 수 있습니다.</p>
                   </div>
                 </li>
               </ul>
@@ -319,26 +504,35 @@ export default function FeaturesPage() {
           <p className="text-blue-100 text-lg sm:text-xl mb-10 max-w-3xl mx-auto reveal" style={{transitionDelay: '0.1s'}}>
             가족의 행복한 일상을 지키는 파트너, SMAP의 모든 기능을 경험해보세요.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center reveal" style={{transitionDelay: '0.2s'}}>
-            <a 
-              href="#download" 
-              className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl font-medium transition shadow-lg hover:shadow-xl group"
-            >
-              <span className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 group-hover:animate-bounce">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-                앱 다운로드
-              </span>
-            </a>
-            <Link 
-              href="/contact" 
-              className="bg-transparent border border-white text-white px-8 py-4 rounded-xl font-medium hover:bg-white/10 transition"
-            >
-              더 알아보기
-            </Link>
-          </div>
-          <p className="text-blue-200 mt-8 text-sm reveal" style={{transitionDelay: '0.3s'}}>카메라로 QR코드를 찍으면 설치할 수 있습니다.</p>
+          <div className="flex flex-col gap-6 justify-center reveal" style={{transitionDelay: '0.1s'}}>
+              <div className="flex justify-center gap-8">
+                <div className="text-center">
+                  <div className="bg-white p-2 rounded-lg shadow-lg mb-2 inline-block">
+                    <Image
+                      src="/images/appStoreQR.jpg"
+                      alt="App Store QR 코드"
+                      width={120}
+                      height={120}
+                      className="rounded"
+                    />
+                  </div>
+                  <p className="text-sm text-indigo-200">App Store</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white p-2 rounded-lg shadow-lg mb-2 inline-block">
+                    <Image
+                      src="/images/googlePlayQR.jpg"
+                      alt="Google Play QR 코드"
+                      width={120}
+                      height={120}
+                      className="rounded"
+                    />
+                  </div>
+                  <p className="text-sm text-indigo-200">Google Play</p>
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-indigo-200 reveal" style={{transitionDelay: '0.3s'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
         </div>
       </section>
     </div>

@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "스맵 - 자녀의 일정과 위치 확인 서비스",
+  title: "SMAP - 자녀의 일정과 위치 확인 서비스",
   description: "언제 어디서든 자녀의 일정과 위치를 확인하세요. 실시간 위치추적과 일정관리를 한번에.",
 };
 
