@@ -13,7 +13,7 @@ export default function ContactSection() {
   };
 
   return (
-    <main className="pt-14 pb-16">
+    <main className="pb-16">
       {/* 헤더 섹션 */}
       <section className="bg-gradient-to-b from-blue-100 to-blue-50 py-12 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
