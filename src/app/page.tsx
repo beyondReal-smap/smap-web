@@ -219,7 +219,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 relative">
           <div className="text-center mb-12 reveal">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white text-balance">SMAP 주요 기능</h2>
-            <p className="text-blue-100 max-w-3xl mx-auto text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>자녀의 안전과 일정을 위한 SMAP의 강력한 기능들을 알아보세요.</p>
+            <p className="text-white max-w-3xl mx-auto text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>자녀의 안전과 일정을 위한 SMAP의 강력한 기능들을 알아보세요.</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
