@@ -82,7 +82,7 @@ export default function ShortsSlider({ isGuideSlider = false }: ShortsSliderProp
           ref={sliderRef}
           className="flex items-center justify-start transition-transform duration-300 ease-in-out"
         >
-          {shorts.map((short, index) => (
+          {shorts.map((short) => (
             <div 
               key={short.id}
               className="shorts-slide flex-shrink-0 mx-1 relative" 

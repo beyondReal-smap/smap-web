@@ -10,24 +10,85 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuPosition, setMenuPosition] = useState({ top: 0, right: 0 });
   const appDownloadLinkRef = useRef<HTMLAnchorElement>(null);
   const closeAlertBtnRef = useRef<HTMLButtonElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
   const qrButtonRef = useRef<HTMLDivElement>(null);
   const qrPopupRef = useRef<HTMLDivElement>(null);
+  const headerDownloadBtnRef = useRef<HTMLAnchorElement>(null);
+  const mobileMenuDownloadBtnRef = useRef<HTMLAnchorElement>(null);
   
   const mobileMenuHomeRef = useRef<HTMLAnchorElement>(null);
   const mobileMenuFeaturesRef = useRef<HTMLAnchorElement>(null);
   const mobileMenuContactRef = useRef<HTMLAnchorElement>(null);
   const mobileMenuTryRef = useRef<HTMLAnchorElement>(null);
 
-  // 메뉴 닫기 함수 추가
-  const closeMenu = () => {
-    setMobileMenuOpen(false);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
+
+  // 메뉴 토글
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const toggleMobileMenu = useCallback(() => {
-    setMobileMenuOpen(prev => !prev);
+  // 메뉴 위치 업데이트 함수
+  const updateMenuPosition = useCallback(() => {
+    if (hamburgerRef.current) {
+      const rect = hamburgerRef.current.getBoundingClientRect();
+      const buttonHeight = rect.height;
+      
+      // 헤더의 높이를 고려하여 메뉴 위치 계산
+      setMenuPosition({
+        top: rect.bottom,
+        right: window.innerWidth - rect.right
+      });
+    }
+  }, []);
+
+  // 스크롤 이벤트 핸들러 (최적화된 버전)
+  useEffect(() => {
+    let ticking = false;
+    let animationFrameId: number;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        // 애니메이션 프레임 사용으로 성능 최적화
+        animationFrameId = window.requestAnimationFrame(() => {
+          if (mobileMenuOpen) {
+            updateMenuPosition();
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    if (mobileMenuOpen) {
+      updateMenuPosition();
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', updateMenuPosition);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateMenuPosition);
+      if (animationFrameId) {
+        window.cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [mobileMenuOpen, updateMenuPosition]);
+
+  // 앱 다운로드 섹션으로 스크롤하는 함수
+  const scrollToDownloadSection = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+    const appDownloadSection = document.getElementById('app-download');
+    if (appDownloadSection) {
+      appDownloadSection.scrollIntoView({ behavior: 'smooth' });
+      // 모바일 메뉴가 열려있으면 닫기
+      setMobileMenuOpen(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -145,6 +206,36 @@ export default function ClientLayout({
       }
     });
 
+    // 헤더와 모바일 메뉴의 "무료로 시작하기" 버튼에 스크롤 이벤트 추가
+    const headerDownloadBtn = headerDownloadBtnRef.current;
+    const mobileMenuDownloadBtn = mobileMenuDownloadBtnRef.current;
+
+    const handleHeaderDownloadClick = (e: MouseEvent) => {
+      e.preventDefault();
+
+      // 현재 경로에 따라 다른 동작 수행
+      const path = window.location.pathname;
+      
+      if (path === '/' || path === '/features') {
+        // 홈페이지와 주요기능 페이지에서는 기존 스크롤 함수 사용
+        scrollToDownloadSection(e);
+      } else if (path === '/contact') {
+        // 문의하기 페이지에서는 해당 페이지의 다운로드 섹션으로 스크롤
+        const downloadSection = document.getElementById('download-section');
+        if (downloadSection) {
+          downloadSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    if (headerDownloadBtn) {
+      headerDownloadBtn.addEventListener('click', handleHeaderDownloadClick);
+    }
+
+    if (mobileMenuDownloadBtn) {
+      mobileMenuDownloadBtn.addEventListener('click', handleHeaderDownloadClick);
+    }
+
     return () => {
       document.removeEventListener('click', handleOutsideClick);
       if (appDownloadLink) {
@@ -165,9 +256,15 @@ export default function ClientLayout({
         qrButton.removeEventListener('click', handleQrButtonClick);
         document.removeEventListener('click', handleQrOutsideClick);
       }
+      if (headerDownloadBtn) {
+        headerDownloadBtn.removeEventListener('click', handleHeaderDownloadClick);
+      }
+      if (mobileMenuDownloadBtn) {
+        mobileMenuDownloadBtn.removeEventListener('click', handleHeaderDownloadClick);
+      }
     };
     
-  }, [toggleMobileMenu, mobileMenuOpen]);
+  }, [toggleMobileMenu, mobileMenuOpen, scrollToDownloadSection]);
 
   return (
     <>
@@ -190,22 +287,24 @@ export default function ClientLayout({
             </ul>
           </nav>
           <div className="hidden md:block">
-            <Link 
-              href="#download" 
+            <a 
+              href="#app-download" 
+              ref={headerDownloadBtnRef}
               className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-5 py-2 rounded-full font-medium transition shadow-md hover:shadow-lg button-glow"
             >
               무료로 시작하기
-            </Link>
+            </a>
           </div>
           <button 
             id="hamburgerButton"
-            className="md:hidden text-gray-700 p-2 z-50"
+            className="md:hidden text-gray-700 p-2 z-50 bg-white rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             ref={hamburgerButtonRef}
             aria-label={mobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -220,8 +319,18 @@ export default function ClientLayout({
       {mobileMenuOpen && (
         <div 
           id="mobileMenu"
-          className="absolute top-14 right-4 bg-white shadow-lg rounded-lg z-40"
-          style={{ width: '180px', maxHeight: 'min(40vh, 250px)', overflow: 'auto' }}
+          className="fixed bg-white shadow-lg rounded-lg z-50"
+          style={{ 
+            top: menuPosition.top, 
+            right: menuPosition.right,
+            width: '180px', 
+            maxHeight: 'min(40vh, 250px)', 
+            overflow: 'auto',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            transition: 'transform 0.05s ease-out',
+            transform: 'translateZ(0)', // 하드웨어 가속 활성화
+            willChange: 'transform', // 브라우저에게 변형이 발생할 것임을 알림
+          }}
         >
           <div className="p-2 relative">
             <div className="py-1">
@@ -247,13 +356,13 @@ export default function ClientLayout({
                 문의하기
               </Link>
               <div className="mt-2">
-                <Link 
-                  href="#download" 
+                <a 
+                  href="#app-download" 
+                  ref={mobileMenuDownloadBtnRef}
                   className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white text-sm px-3 py-1.5 rounded-md font-medium transition shadow-md hover:shadow-lg button-glow block text-center"
-                  ref={mobileMenuTryRef}
                 >
                   무료로 시작하기
-                </Link>
+                </a>
               </div>
             </div>
           </div>

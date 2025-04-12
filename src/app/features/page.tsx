@@ -1,27 +1,42 @@
-import React from 'react';
+'use client';
+
+import React, { useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function FeaturesPage() {
+  const downloadSectionRef = useRef<HTMLElement>(null);
+
+  const scrollToDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    downloadSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="flex flex-col items-center">
       {/* 헤더 섹션 */}
       <section className="w-full py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 z-0"></div>
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200 rounded-full opacity-20 blur-3xl anim-pulse"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-300 rounded-full opacity-20 blur-3xl anim-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 z-0"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-200 rounded-full opacity-30 blur-3xl anim-pulse"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-300 rounded-full opacity-30 blur-3xl anim-pulse"></div>
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance anim-fade-in">SMAP의 주요 기능</h1>
-          <p className="text-gray-600 text-lg sm:text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-balance anim-slide-up" style={{animationDelay: '0.2s'}}>
+          <p className="text-gray-600 text-lg sm:text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-balance anim-slide-up" style={{animationDelay: '0.2s', wordBreak: 'keep-all', overflow: 'hidden'}}>
             자녀의 안전과 일정 관리를 위한 SMAP의 핵심 기능들을 소개합니다. <br />
             실시간 위치 확인부터 효율적인 일정 관리까지, 자녀를 위한 최고의 솔루션입니다.
           </p>
+          <a 
+            href="#app-download" 
+            onClick={scrollToDownload}
+            className="inline-block bg-blue-600 text-white py-3 px-8 rounded-lg font-medium hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            무료로 시작하기
+          </a>
         </div>
       </section>
 
-      {/* 가족만의 프라이빗 공간 */}
-      <section className="w-full py-16 md:py-24 bg-teal-50 relative overflow-hidden">
+      {/* 가족만의 프라이빗 공간 - 빨간색 */}
+      <section className="w-full py-16 md:py-24 bg-red-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 reveal">
@@ -32,8 +47,8 @@ export default function FeaturesPage() {
                     <Image
                       src="/images/비공개그룹.webp"
                       alt="가족만의 프라이빗 공간"
-                      width={300}
-                      height={400}
+                      width={400}
+                      height={500}
                       className="object-contain max-h-full"
                     />
                   </div>
@@ -42,45 +57,45 @@ export default function FeaturesPage() {
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">프라이버시 보호</div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">가족만의 프라이빗 공간</h2>
+                <div className="inline-block px-4 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">프라이버시 보호</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">가족만의 프라이빗 공간</h2>
               </div>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>
                 초대제로 운영되는 안전한 그룹으로, 가족 구성원들만을 위한 비공개 그룹을 제공합니다. 
                 가족의 프라이버시를 최우선으로 지키며, 따뜻한 연결을 만들어갑니다.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">초대제 운영 시스템</p>
-                    <p className="text-gray-600 mt-1">초대를 통해서만 가입할 수 있어 안전한 가족 공간을 보장합니다. 외부인의 접근을 원천적으로 차단하여 프라이버시를 보호합니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">초대제 운영 시스템</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>초대를 통해서만 가입할 수 있어 안전한 가족 공간을 보장합니다. 외부인의 접근을 원천적으로 차단하여 프라이버시를 보호합니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">실시간 위치 공유</p>
-                    <p className="text-gray-600 mt-1">가족 구성원들은 언제 어디서나 서로의 위치를 실시간으로 확인할 수 있어 안심하고 소통할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">실시간 위치 공유</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>가족 구성원들은 언제 어디서나 서로의 위치를 실시간으로 확인할 수 있어 안심하고 소통할 수 있습니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">정보 보안</p>
-                    <p className="text-gray-600 mt-1">가족의 개인정보와 위치 데이터는 철저한 보안 시스템으로 보호되어 외부 유출 위험 없이 안전하게 관리됩니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">정보 보안</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>가족의 개인정보와 위치 데이터는 철저한 보안 시스템으로 보호되어 외부 유출 위험 없이 안전하게 관리됩니다.</p>
                   </div>
                 </li>
               </ul>
@@ -89,65 +104,67 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 최적의 이동 경로 안내 */}
-      <section className="w-full py-16 md:py-24 bg-amber-50 relative overflow-hidden">
+      {/* 최적의 이동 경로 안내 - 주황색 */}
+      <section className="w-full py-16 md:py-24 bg-orange-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0 opacity-20 blur-lg"></div>
-                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
-                  <Image
-                    src="/images/최적경로.webp"
-                    alt="최적의 이동 경로 안내"
-                    width={300}
-                    height={400}
-                    className="object-contain max-h-full"
-                  />
+                <div className="absolute inset-0 bg-orange-200 opacity-20 blur-lg"></div>
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-xl border-2 border-orange-100">
+                  <div className="bg-white p-4 rounded-lg">
+                    <Image
+                      src="/images/최적경로.webp"
+                      alt="최적의 이동 경로 안내"
+                      width={400}
+                      height={500}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">편리한 이동</div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">최적의 이동 경로 안내</h2>
+                <div className="inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">편리한 이동</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">최적의 이동 경로 안내</h2>
               </div>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>
                 현재 위치에서 다음 일정 장소까지 T-Map의 최적 경로를 바로 제공합니다. 
                 번거로운 검색 없이, 가장 빠르고 편리한 길을 안내받아 시간을 절약하세요.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">T-Map 연동 시스템</p>
-                    <p className="text-gray-600 mt-1">국내 최고의 내비게이션 서비스인 T-Map과 연동되어 정확하고 신뢰할 수 있는 최적 경로를 제공합니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">T-Map 연동 시스템</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>국내 최고의 내비게이션 서비스인 T-Map과 연동되어 정확하고 신뢰할 수 있는 최적 경로를 제공합니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">원클릭 길 안내</p>
-                    <p className="text-gray-600 mt-1">일정 장소까지 한 번의 클릭으로 바로 경로 안내를 시작할 수 있어 빠르고 편리하게 이동할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">원클릭 길 안내</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>일정 장소까지 한 번의 클릭으로 바로 경로 안내를 시작할 수 있어 빠르고 편리하게 이동할 수 있습니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">실시간 교통 정보</p>
-                    <p className="text-gray-600 mt-1">실시간 교통 상황을 반영한 최적의 경로를 제공하여 이동 시간을 단축하고 효율적인 일정 관리를 도와줍니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">실시간 교통 정보</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>실시간 교통 상황을 반영한 최적의 경로를 제공하여 이동 시간을 단축하고 효율적인 일정 관리를 도와줍니다.</p>
                   </div>
                 </li>
               </ul>
@@ -156,65 +173,67 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 가족 맞춤 스마트 알림 */}
-      <section className="w-full py-16 md:py-24 bg-pink-50 relative overflow-hidden">
+      {/* 가족 맞춤 스마트 알림 - 노란색 */}
+      <section className="w-full py-16 md:py-24 bg-yellow-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
                 <div className="absolute inset-0 opacity-20 blur-lg"></div>
-                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
-                  <Image
-                    src="/images/스마트알림.webp"
-                    alt="가족 맞춤 스마트 알림"
-                    width={300}
-                    height={400}
-                    className="object-contain max-h-full"
-                  />
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-xl border-2 border-white">
+                  <div className="bg-white p-4 rounded-lg">
+                    <Image
+                      src="/images/스마트알림.webp"
+                      alt="가족 맞춤 스마트 알림"
+                      width={400}
+                      height={500}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium">맞춤형 알림</div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">가족 맞춤 스마트 알림</h2>
+                <div className="inline-block px-4 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">맞춤형 알림</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">가족 맞춤 스마트 알림</h2>
               </div>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>
                 입력된 일정과 장소를 기반으로 부모와 자녀 모두에게 최적화된 알림을 제공합니다. 
                 중요한 약속이나 활동을 놓치지 않도록, 가족 각자의 필요에 맞춘 세심한 알림으로 하루를 더욱 체계적으로 관리할 수 있습니다.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">일정 맞춤 알림</p>
-                    <p className="text-gray-600 mt-1">일정 시작 시간에 맞춰 적절한 시간에 알림을 받아 지각이나 중요한 활동을 놓치는 일이 없도록 도와줍니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">일정 알림 설정</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>학교, 학원, 특별 활동 등 중요한 일정 30분 전에 알림을 받아 준비할 수 있도록 도와줍니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">이중 알림 시스템</p>
-                    <p className="text-gray-600 mt-1">부모와 자녀 모두에게 알림을 전송하여 양쪽 모두 일정을 놓치지 않도록 하며, 보호자는 자녀의 일정 상태를 확인할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">위치 기반 알림</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>자녀가 집, 학교 등 지정된 안전 구역에 도착하거나 떠날 때 자동으로 알림을 받아 실시간으로 안전을 확인할 수 있습니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">알림 우선순위 설정</p>
-                    <p className="text-gray-600 mt-1">중요도에 따라 알림의 우선순위를 설정할 수 있어 중요한 일정을 더욱 잘 관리할 수 있습니다.</p>
+                    <p className="font-medium text-gray-900 text-lg text-balance">맞춤형 알림 설정</p>
+                    <p className="text-gray-600 mt-1 text-balance" style={{wordBreak: 'keep-all', overflow: 'hidden'}}>각 가족 구성원별로 원하는 유형의 알림만 선택하여 받을 수 있어 불필요한 알림은 줄이고 중요한 정보에 집중할 수 있습니다.</p>
                   </div>
                 </li>
               </ul>
@@ -223,27 +242,29 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 가족의 발자취 기록 */}
-      <section className="w-full py-16 md:py-24 bg-cyan-50 relative overflow-hidden">
+      {/* 가족의 발자취 기록 - 초록색 */}
+      <section className="w-full py-16 md:py-24 bg-green-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
                 <div className="absolute inset-0 opacity-20 blur-lg"></div>
-                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
-                  <Image
-                    src="/images/위치기록.webp"
-                    alt="가족의 발자취 기록"
-                    width={300}
-                    height={400}
-                    className="object-contain max-h-full"
-                  />
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-xl border-2 border-white">
+                  <div className="bg-white p-4 rounded-lg">
+                    <Image
+                      src="/images/위치기록.webp"
+                      alt="가족의 발자취 기록"
+                      width={400}
+                      height={500}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">이동 기록</div>
+                <div className="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">이동 기록</div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">가족의 발자취 기록</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
@@ -253,7 +274,7 @@ export default function FeaturesPage() {
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -264,7 +285,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -275,7 +296,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -291,27 +312,29 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 스마트 일정 관리 */}
-      <section className="w-full py-16 md:py-24 bg-indigo-50 relative overflow-hidden">
+      {/* 스마트 일정 관리 - 파란색 */}
+      <section className="w-full py-16 md:py-24 bg-blue-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
                 <div className="absolute inset-0 opacity-20 blur-lg"></div>
-                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
-                  <Image
-                    src="/images/스마트일정.webp"
-                    alt="스마트 일정 관리"
-                    width={300}
-                    height={400}
-                    className="object-contain max-h-full"
-                  />
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-xl border-2 border-white">
+                  <div className="bg-white p-4 rounded-lg">
+                    <Image
+                      src="/images/스마트일정.webp"
+                      alt="스마트 일정 관리"
+                      width={400}
+                      height={500}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">효율적 관리</div>
+                <div className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">효율적 관리</div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">스마트 일정 관리</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
@@ -321,7 +344,7 @@ export default function FeaturesPage() {
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -332,7 +355,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -343,7 +366,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -359,27 +382,29 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 유연한 그룹 관리 */}
-      <section className="w-full py-16 md:py-24 bg-orange-50 relative overflow-hidden">
+      {/* 유연한 그룹 관리 - 남색 */}
+      <section className="w-full py-16 md:py-24 bg-indigo-200 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
                 <div className="absolute inset-0 opacity-20 blur-lg"></div>
-                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
-                  <Image
-                    src="/images/그룹관리.webp"
-                    alt="유연한 그룹 관리"
-                    width={300}
-                    height={400}
-                    className="object-contain max-h-full"
-                  />
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-xl border-2 border-white">
+                  <div className="bg-white p-4 rounded-lg">
+                    <Image
+                      src="/images/그룹관리.webp"
+                      alt="유연한 그룹 관리"
+                      width={400}
+                      height={500}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">맞춤형 설정</div>
+                <div className="inline-block px-4 py-1 bg-indigo-300 text-indigo-800 rounded-full text-sm font-medium">맞춤형 설정</div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">유연한 그룹 관리</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
@@ -388,7 +413,7 @@ export default function FeaturesPage() {
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-indigo-300 text-indigo-700 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -399,7 +424,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-indigo-300 text-indigo-700 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -410,7 +435,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-indigo-300 text-indigo-700 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -426,27 +451,29 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* 하루를 한눈에 (일일 요약) */}
-      <section className="w-full py-16 md:py-24 bg-violet-50 relative overflow-hidden">
+      {/* 하루를 한눈에 (일일 요약) - 보라색 */}
+      <section className="w-full py-16 md:py-24 bg-purple-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 reveal">
               <div className="relative w-full max-w-md mx-auto">
                 <div className="absolute inset-0 opacity-20 blur-lg"></div>
-                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-lg border border-gray-100">
-                  <Image
-                    src="/images/일일요약.webp"
-                    alt="하루를 한눈에 일일 요약"
-                    width={300}
-                    height={400}
-                    className="object-contain max-h-full"
-                  />
+                <div className="bg-white rounded-xl p-6 h-[450px] flex items-center justify-center shadow-xl border-2 border-white">
+                  <div className="bg-white p-4 rounded-lg">
+                    <Image
+                      src="/images/일일요약.webp"
+                      alt="하루를 한눈에 일일 요약"
+                      width={400}
+                      height={500}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 reveal" style={{transitionDelay: '0.2s'}}>
               <div className="space-y-2">
-                <div className="inline-block px-4 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium">간편한 요약</div>
+                <div className="inline-block px-4 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">간편한 요약</div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6">하루를 한눈에</h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
@@ -455,7 +482,7 @@ export default function FeaturesPage() {
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.3s'}}>
-                  <div className="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -466,7 +493,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.4s'}}>
-                  <div className="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -477,7 +504,7 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4 reveal" style={{transitionDelay: '0.5s'}}>
-                  <div className="w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -494,10 +521,9 @@ export default function FeaturesPage() {
       </section>
 
       {/* CTA 섹션 */}
-      <section className="w-full py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-800 z-0"></div>
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full opacity-20 blur-3xl anim-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500 rounded-full opacity-20 blur-3xl anim-pulse"></div>
+      <section id="app-download" ref={downloadSectionRef} className="w-full py-16 md:py-24 bg-gradient-to-br from-blue-700 to-indigo-800 text-white relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-600 rounded-full opacity-20 blur-3xl anim-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-600 rounded-full opacity-20 blur-3xl anim-pulse"></div>
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white reveal">지금, 무료로 시작해 보세요!</h2>
