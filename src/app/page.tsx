@@ -453,8 +453,8 @@ export default function Home() {
         
         <div className="container mx-auto px-4 sm:px-6 relative">
           <div className="text-center mb-12 reveal">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">지금 무료로 시작하세요</h2>
-            <p className="text-indigo-100 text-lg max-w-3xl mx-auto mb-8 text-balance whitespace-normal" style={{wordBreak: 'keep-all', wordWrap: 'normal'}}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance text-white">지금 무료로 시작하세요</h2>
+            <p className="text-white text-lg max-w-3xl mx-auto mb-8 text-balance whitespace-normal" style={{wordBreak: 'keep-all', wordWrap: 'normal'}}>
               가족의 행복한 일상을 위한 첫 걸음, SMAP이 함께합니다.<br />
               App Store와 Google Play에서 무료로 다운로드하세요.
             </p>
@@ -470,7 +470,7 @@ export default function Home() {
                       className="rounded"
                     />
                   </div>
-                  <p className="text-sm text-indigo-200">App Store</p>
+                  <p className="text-sm text-white">App Store</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-white p-2 rounded-lg shadow-lg mb-2 inline-block">
@@ -482,11 +482,11 @@ export default function Home() {
                       className="rounded"
                     />
                   </div>
-                  <p className="text-sm text-indigo-200">Google Play</p>
+                  <p className="text-sm text-white">Google Play</p>
                 </div>
               </div>
             </div>
-            <p className="mt-4 text-sm text-indigo-200 reveal text-balance" style={{transitionDelay: '0.3s', wordBreak: 'keep-all', overflow: 'hidden'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
+            <p className="mt-4 text-sm text-white reveal text-balance" style={{transitionDelay: '0.3s', wordBreak: 'keep-all', overflow: 'hidden'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
           </div>
         </div>
       </section>

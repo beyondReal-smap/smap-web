@@ -13,13 +13,13 @@ export default function ContactSection() {
   };
 
   return (
-    <main className="pt-20 pb-16">
+    <main>
       {/* 헤더 섹션 */}
-      <section className="bg-gradient-to-b from-blue-100 to-blue-50 py-16 shadow-sm">
+      <section className="bg-gradient-to-b from-blue-100 to-blue-50 py-12 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">문의하기</h1>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-gray-700 mb-8">
               SMAP에 관한 질문이나 제안이 있으신가요? 언제든지 문의해 주세요.
             </p>
             <div className="flex justify-center space-x-4">
@@ -55,7 +55,7 @@ export default function ContactSection() {
             {/* 추가 정보 */}
             <div>
               <div className="bg-gray-50 rounded-xl shadow p-8 h-full">
-                <h2 className="text-2xl font-bold mb-6">연락처 정보</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">연락처 정보</h2>
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 bg-blue-100 p-3 rounded-full">
@@ -65,25 +65,25 @@ export default function ContactSection() {
                     </div>
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold text-gray-900">이메일</h3>
-                      <p className="text-gray-600 mt-1">admin@smap.site</p>
+                      <p className="text-gray-700 mt-1">admin@smap.site</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10">
-                  <h2 className="text-2xl font-bold mb-6">자주 묻는 질문</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">자주 묻는 질문</h2>
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900">SMAP은 어떤 기기에서 사용할 수 있나요?</h3>
-                      <p className="text-gray-600 mt-1">SMAP은 iOS와 Android 모두에서 사용 가능합니다. 앱 스토어 또는 구글 플레이에서 다운로드할 수 있습니다.</p>
+                      <p className="text-gray-700 mt-1">SMAP은 iOS와 Android 모두에서 사용 가능합니다. 앱 스토어 또는 구글 플레이에서 다운로드할 수 있습니다.</p>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900">SMAP은 무료인가요?</h3>
-                      <p className="text-gray-600 mt-1">네, SMAP의 기본 기능은 무료로 이용하실 수 있습니다. 일부 프리미엄 기능은 추가 요금이 발생할 수 있습니다.</p>
+                      <p className="text-gray-700 mt-1">네, SMAP의 기본 기능은 무료로 이용하실 수 있습니다. 일부 프리미엄 기능은 추가 요금이 발생할 수 있습니다.</p>
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900">더 많은 질문이 있으신가요?</h3>
-                      <p className="text-gray-600 mt-1">
+                      <p className="text-gray-700 mt-1">
                         <a href="https://schedulemap.notion.site/FAQ-8f37107b3c7c4307afd4297c7d71b5d5?pvs=4" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
                           전체 FAQ 보기
                         </a>
@@ -104,8 +104,8 @@ export default function ContactSection() {
         
         <div className="container mx-auto px-4 sm:px-6 relative">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">지금 무료로 시작하세요</h2>
-            <p className="text-indigo-100 text-lg max-w-3xl mx-auto mb-8 text-balance whitespace-normal" style={{wordBreak: 'keep-all', wordWrap: 'normal'}}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance text-white">지금 무료로 시작하세요</h2>
+            <p className="text-white text-lg max-w-3xl mx-auto mb-8 text-balance whitespace-normal" style={{wordBreak: 'keep-all', wordWrap: 'normal'}}>
               가족의 행복한 일상을 위한 첫 걸음, SMAP이 함께합니다.<br />
               App Store와 Google Play에서 무료로 다운로드하세요.
             </p>
@@ -121,7 +121,7 @@ export default function ContactSection() {
                       className="rounded"
                     />
                   </div>
-                  <p className="text-sm text-indigo-200">App Store</p>
+                  <p className="text-sm text-white">App Store</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-white p-2 rounded-lg shadow-lg mb-2 inline-block">
@@ -133,11 +133,11 @@ export default function ContactSection() {
                       className="rounded"
                     />
                   </div>
-                  <p className="text-sm text-indigo-200">Google Play</p>
+                  <p className="text-sm text-white">Google Play</p>
                 </div>
               </div>
             </div>
-            <p className="mt-4 text-sm text-indigo-200 text-balance" style={{transitionDelay: '0.3s', wordBreak: 'keep-all', overflow: 'hidden'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
+            <p className="mt-4 text-sm text-white text-balance" style={{transitionDelay: '0.3s', wordBreak: 'keep-all', overflow: 'hidden'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
           </div>
         </div>
       </section>

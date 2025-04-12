@@ -370,11 +370,11 @@ export default function ClientLayout({
       <main className="pt-16">
         {children}
       </main>
-      <footer className="bg-gradient-to-br from-slate-50 to-blue-50 py-16 mt-16">
+      <footer className="bg-gradient-to-br from-slate-50 to-blue-50 py-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 text-blue-600">SMAP</h3>
+              <h3 className="text-xl font-bold mb-4 text-blue-600 !text-blue-600" style={{color: '#2563eb !important'}}>SMAP</h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base leading-relaxed">자녀의 위치와 일정을 확인하는<br />가장 신뢰할 수 있는 서비스</p>
               <div className="flex space-x-4">
                 <a href="https://www.facebook.com/smap.official.2024/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
@@ -385,7 +385,7 @@ export default function ClientLayout({
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-blue-600">지원</h3>
+              <h3 className="text-lg font-semibold mb-4 text-blue-600 !text-blue-600" style={{color: '#2563eb !important'}}>지원</h3>
               <ul className="space-y-2 text-sm sm:text-base">
                 <li><Link href="/contact" className="text-gray-600 hover:text-blue-600">문의하기</Link></li>
                 <li><Link href="https://schedulemap.notion.site/FAQ-8f37107b3c7c4307afd4297c7d71b5d5?pvs=4" target="_blank" className="text-gray-600 hover:text-blue-600">FAQ</Link></li>
@@ -393,7 +393,7 @@ export default function ClientLayout({
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-blue-600">이용약관</h3>
+              <h3 className="text-lg font-semibold mb-4 text-blue-600 !text-blue-600" style={{color: '#2563eb !important'}}>이용약관</h3>
               <ul className="space-y-2 text-sm sm:text-base">
                 <li><Link href="https://schedulemap.notion.site/30b32b5ad0bc4f99a39b28c0fe5f1de4?pvs=4" target="_blank" className="text-gray-600 hover:text-blue-600">서비스이용약관</Link></li>
                 <li><Link href="https://schedulemap.notion.site/2ac62e02f97b4d61945d68c2d89109e9?pvs=4" target="_blank" className="text-gray-600 hover:text-blue-600">개인정보처리방침</Link></li>

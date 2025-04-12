@@ -527,7 +527,7 @@ export default function FeaturesPage() {
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white reveal">지금, 무료로 시작해 보세요!</h2>
-          <p className="text-blue-100 text-lg sm:text-xl mb-10 max-w-3xl mx-auto reveal" style={{transitionDelay: '0.1s'}}>
+          <p className="text-white text-lg sm:text-xl mb-10 max-w-3xl mx-auto reveal" style={{transitionDelay: '0.1s'}}>
             가족의 행복한 일상을 지키는 파트너, SMAP의 모든 기능을 경험해보세요.
           </p>
           <div className="flex flex-col gap-6 justify-center reveal" style={{transitionDelay: '0.1s'}}>
@@ -542,7 +542,7 @@ export default function FeaturesPage() {
                       className="rounded"
                     />
                   </div>
-                  <p className="text-sm text-indigo-200">App Store</p>
+                  <p className="text-sm text-white">App Store</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-white p-2 rounded-lg shadow-lg mb-2 inline-block">
@@ -554,11 +554,11 @@ export default function FeaturesPage() {
                       className="rounded"
                     />
                   </div>
-                  <p className="text-sm text-indigo-200">Google Play</p>
+                  <p className="text-sm text-white">Google Play</p>
                 </div>
               </div>
             </div>
-            <p className="mt-4 text-sm text-indigo-200 reveal" style={{transitionDelay: '0.3s'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
+            <p className="mt-4 text-sm text-white reveal" style={{transitionDelay: '0.3s'}}>카메라로 QR코드를 스캔하여<br />앱을 설치할 수 있습니다.</p>
         </div>
       </section>
     </div>

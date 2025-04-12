@@ -12,17 +12,48 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* 다크모드 자동 적용 비활성화
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+*/
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 밝은 배경에서의 텍스트 색상 강제 지정 */
+.bg-white p, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, 
+.bg-gray-50 p, .bg-gray-50 h1, .bg-gray-50 h2, .bg-gray-50 h3, .bg-gray-50 h4, .bg-gray-50 h5, .bg-gray-50 h6,
+.from-blue-50 p, .from-blue-50 h1, .from-blue-50 h2, .from-blue-50 h3, .from-blue-50 h4, .from-blue-50 h5, .from-blue-50 h6,
+.to-blue-50 p, .to-blue-50 h1, .to-blue-50 h2, .to-blue-50 h3, .to-blue-50 h4, .to-blue-50 h5, .to-blue-50 h6  {
+  color: var(--foreground);
+}
+
+/* 특정 클래스에 대한 색상 설정 */
+.text-white {
+  color: white !important;
+}
+
+.text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.text-gray-700 {
+  color: #374151 !important;
+}
+
+.text-gray-800 {
+  color: #1f2937 !important;
+}
+
+.text-gray-900 {
+  color: #111827 !important;
 }
 
 /* 모바일 메뉴 스타일 */
@@ -84,4 +115,30 @@ body {
 .absolute[aria-label="메뉴 닫기"] {
   z-index: 999 !important;
   cursor: pointer !important;
+}
+
+/* 다크 모드에서도 밝은 배경의 요소의 글자 색상 유지 */
+@media (prefers-color-scheme: dark) {
+  .bg-white p, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, 
+  .bg-gray-50 p, .bg-gray-50 h1, .bg-gray-50 h2, .bg-gray-50 h3, .bg-gray-50 h4, .bg-gray-50 h5, .bg-gray-50 h6,
+  .from-blue-50 p, .from-blue-50 h1, .from-blue-50 h2, .from-blue-50 h3, .from-blue-50 h4, .from-blue-50 h5, .from-blue-50 h6,
+  .to-blue-50 p, .to-blue-50 h1, .to-blue-50 h2, .to-blue-50 h3, .to-blue-50 h4, .to-blue-50 h5, .to-blue-50 h6 {
+    color: var(--foreground);
+  }
+  
+  .text-gray-600 {
+    color: #4b5563 !important;
+  }
+  
+  .text-gray-700 {
+    color: #374151 !important;
+  }
+  
+  .text-gray-800 {
+    color: #1f2937 !important;
+  }
+  
+  .text-gray-900 {
+    color: #111827 !important;
+  }
 }
