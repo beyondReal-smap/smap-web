@@ -25,19 +25,16 @@ export default function ClientLayout({
   const mobileMenuTryRef = useRef<HTMLAnchorElement>(null);
 
   const hamburgerRef = useRef<HTMLButtonElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const lastScrollY = useRef(0);
 
   // 메뉴 토글
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev);
+  }, []);
 
   // 메뉴 위치 업데이트 함수
   const updateMenuPosition = useCallback(() => {
     if (hamburgerRef.current) {
       const rect = hamburgerRef.current.getBoundingClientRect();
-      const buttonHeight = rect.height;
       
       // 헤더의 높이를 고려하여 메뉴 위치 계산
       setMenuPosition({
@@ -90,6 +87,25 @@ export default function ClientLayout({
       setMobileMenuOpen(false);
     }
   }, []);
+
+  // 헤더 다운로드 버튼 클릭 핸들러
+  const handleHeaderDownloadClick = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+
+    // 현재 경로에 따라 다른 동작 수행
+    const path = window.location.pathname;
+    
+    if (path === '/' || path === '/features') {
+      // 홈페이지와 주요기능 페이지에서는 기존 스크롤 함수 사용
+      scrollToDownloadSection(e);
+    } else if (path === '/contact') {
+      // 문의하기 페이지에서는 해당 페이지의 다운로드 섹션으로 스크롤
+      const downloadSection = document.getElementById('download-section');
+      if (downloadSection) {
+        downloadSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [scrollToDownloadSection]);
 
   useEffect(() => {
     // 스크롤 애니메이션
@@ -210,24 +226,6 @@ export default function ClientLayout({
     const headerDownloadBtn = headerDownloadBtnRef.current;
     const mobileMenuDownloadBtn = mobileMenuDownloadBtnRef.current;
 
-    const handleHeaderDownloadClick = (e: MouseEvent) => {
-      e.preventDefault();
-
-      // 현재 경로에 따라 다른 동작 수행
-      const path = window.location.pathname;
-      
-      if (path === '/' || path === '/features') {
-        // 홈페이지와 주요기능 페이지에서는 기존 스크롤 함수 사용
-        scrollToDownloadSection(e);
-      } else if (path === '/contact') {
-        // 문의하기 페이지에서는 해당 페이지의 다운로드 섹션으로 스크롤
-        const downloadSection = document.getElementById('download-section');
-        if (downloadSection) {
-          downloadSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    };
-
     if (headerDownloadBtn) {
       headerDownloadBtn.addEventListener('click', handleHeaderDownloadClick);
     }
@@ -264,7 +262,7 @@ export default function ClientLayout({
       }
     };
     
-  }, [toggleMobileMenu, mobileMenuOpen, scrollToDownloadSection]);
+  }, [toggleMobileMenu, mobileMenuOpen, scrollToDownloadSection, handleHeaderDownloadClick]);
 
   return (
     <>
