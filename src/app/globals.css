@@ -27,6 +27,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* 한국어 텍스트 줄바꿈 속성 전역 적용 */
+body, p, h1, h2, h3, h4, h5, h6, span, a, div, li, label, input, textarea, select, option, button {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 아이폰에서 단어 끊김 방지를 위한 추가 설정 */
+select, option, textarea, input, label {
+  text-align: left;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
+
+/* 긴 텍스트의 자연스러운 줄바꿈을 위한 설정 */
+p, span, label, option {
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
 /* 밝은 배경에서의 텍스트 색상 강제 지정 */
 .bg-white p, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, 
 .bg-gray-50 p, .bg-gray-50 h1, .bg-gray-50 h2, .bg-gray-50 h3, .bg-gray-50 h4, .bg-gray-50 h5, .bg-gray-50 h6,

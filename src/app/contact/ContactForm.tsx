@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
+
+// 글로벌 스타일 객체 정의
+const textStyle: CSSProperties = {
+  wordBreak: 'keep-all',
+  overflowWrap: 'break-word'
+};
 
 export default function ContactForm() {
   const [privacyChecked, setPrivacyChecked] = useState(false);
@@ -31,13 +37,13 @@ export default function ContactForm() {
     <div className="bg-white rounded-xl shadow-lg p-8 relative">
       {showAlert && (
         <div className="absolute top-2 left-0 right-0 mx-auto w-5/6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-          <p>개인정보 수집 및 이용에 동의해 주세요.</p>
+          <p style={textStyle}>개인정보 수집 및 이용에 동의해 주세요.</p>
         </div>
       )}
-      <h2 className="text-2xl font-bold mb-6">문의 보내기</h2>
+      <h2 className="text-2xl font-bold mb-6" style={textStyle}>문의 보내기</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">이름</label>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2" style={textStyle}>이름</label>
           <input 
             type="text" 
             id="name" 
@@ -48,7 +54,7 @@ export default function ContactForm() {
         </div>
         
         <div className="mb-6">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">이메일</label>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2" style={textStyle}>이메일</label>
           <input 
             type="email" 
             id="email" 
@@ -59,11 +65,12 @@ export default function ContactForm() {
         </div>
         
         <div className="mb-6">
-          <label htmlFor="inquiry-type" className="block text-sm font-medium text-gray-700 mb-2">문의 유형</label>
+          <label htmlFor="inquiry-type" className="block text-sm font-medium text-gray-700 mb-2" style={textStyle}>문의 유형</label>
           <select 
             id="inquiry-type" 
             required
             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            style={textStyle}
           >
             <option value="">문의 유형을 선택해주세요</option>
             <option value="location">위치 추적 관련 문의</option>
@@ -75,13 +82,14 @@ export default function ContactForm() {
         </div>
         
         <div className="mb-6">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">메시지</label>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2" style={textStyle}>메시지</label>
           <textarea 
             id="message" 
             rows={6} 
             required
             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
             placeholder="자녀의 안전이나 일정 관리에 관한 문의 또는 제안 사항을 자유롭게 작성해주세요."
+            style={textStyle}
           ></textarea>
         </div>
         
@@ -94,7 +102,7 @@ export default function ContactForm() {
               onChange={(e) => setPrivacyChecked(e.target.checked)}
               className="mt-1 focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" 
             />
-            <label htmlFor="privacy" className="ml-2 block text-sm text-gray-600">
+            <label htmlFor="privacy" className="ml-2 block text-sm text-gray-600" style={textStyle}>
               개인정보 수집 및 이용에 동의합니다. 입력하신 정보는 문의 답변 목적으로만 사용됩니다.
             </label>
           </div>
@@ -103,6 +111,7 @@ export default function ContactForm() {
         <button 
           type="submit" 
           className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          style={textStyle}
         >
           문의 보내기
         </button>
