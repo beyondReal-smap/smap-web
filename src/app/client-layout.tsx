@@ -401,7 +401,7 @@ export default function ClientLayout({
               </ul>
             </div>
           </div>
-          <div className="border-t border-blue-100 mt-12 pt-8 text-center text-gray-500">
+          <div className="border-t border-blue-100 mt-12 pt-8 text-left text-gray-500">
             <p className="mb-2 text-sm sm:text-base"><strong>Beyond Real</strong></p>
             <p className="mb-2 text-xs sm:text-sm">대표 : 정진 | 208-07-09695 | admin@smap.site</p>
             <p className="mb-2 text-xs sm:text-sm">경기도 김포시 김포한강9로75번길 66, 505-A237호 (국제프라자)</p>
