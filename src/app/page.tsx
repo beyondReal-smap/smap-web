@@ -224,13 +224,13 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.1s'}}>
-              <div className="relative aspect-[4/3] overflow-hidden bg-blue-50 border-b border-gray-200">
+              <div className="relative aspect-[3/2] overflow-hidden bg-blue-50 border-b border-gray-200">
                 <Image
-                  src="/images/2.webp"
+                  src="/images/main.png"
                   alt="실시간 위치 확인"
                   fill
-                  style={{objectFit: 'cover', objectPosition: '50% 40%'}}
-                  className="transition-transform duration-500 hover:scale-103"
+                  style={{objectFit: 'contain', objectPosition: '50% 20%'}}
+                  className="transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -244,13 +244,13 @@ export default function Home() {
             </div>
             
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.2s'}}>
-              <div className="relative aspect-[4/3] overflow-hidden bg-red-50 border-b border-gray-200">
+              <div className="relative aspect-[3/2] overflow-hidden bg-red-50 border-b border-gray-200">
                 <Image
-                  src="/images/5.webp"
+                  src="/images/schedule.png"
                   alt="일정 관리"
                   fill
-                  style={{objectFit: 'cover', objectPosition: '50% 0%'}}
-                  className="transition-transform duration-500 hover:scale-103"
+                  style={{objectFit: 'contain', objectPosition: '50% 15%'}}
+                  className="transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -264,13 +264,13 @@ export default function Home() {
             </div>
             
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.3s'}}>
-              <div className="relative aspect-[4/3] overflow-hidden bg-green-50 border-b border-gray-200">
+              <div className="relative aspect-[3/2] overflow-hidden bg-green-50 border-b border-gray-200">
                 <Image
-                  src="/images/4.webp"
+                  src="/images/mylocation.png"
                   alt="내장소(안전구역) 설정"
                   fill
-                  style={{objectFit: 'cover', objectPosition: '50% 45%'}}
-                  className="transition-transform duration-500 hover:scale-103"
+                  style={{objectFit: 'contain', objectPosition: '50% 10%'}}
+                  className="transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -289,7 +289,7 @@ export default function Home() {
                   src="/images/8.webp"
                   alt="이동 경로 확인"
                   fill
-                  style={{objectFit: 'cover', objectPosition: '50% 40%'}}
+                  style={{objectFit: 'contain', objectPosition: '50% 30%'}}
                   className="transition-transform duration-500 hover:scale-103"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
@@ -309,7 +309,7 @@ export default function Home() {
                   src="/images/2.webp"
                   alt="다중 사용자 관리"
                   fill
-                  style={{objectFit: 'cover', objectPosition: '50% 80%'}}
+                  style={{objectFit: 'contain', objectPosition: '50% 60%'}}
                   className="transition-transform duration-500 hover:scale-103"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
@@ -329,7 +329,7 @@ export default function Home() {
                   src="/images/7.webp"
                   alt="직관적인 인터페이스"
                   fill
-                  style={{objectFit: 'cover', objectPosition: '50% 75%'}}
+                  style={{objectFit: 'contain', objectPosition: '50% 50%'}}
                   className="transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>

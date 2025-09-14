@@ -268,14 +268,15 @@ export default function ClientLayout({
     <>
       <header className="fixed w-full bg-white border-b border-gray-100 z-50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
-            <Image 
-              src="/images/logo.png" 
-              alt="SMAP 로고" 
-              width={80} 
-              height={32} 
-              className="h-8 w-auto"
+          <Link href="/" className="flex items-center text-3xl font-medium">
+            <Image
+              src="/images/logo.png"
+              alt="SMAP 로고"
+              width={120}
+              height={48}
+              className="h-12 w-auto"
             />
+            <span className="text-gray-700 font-medium">smap</span>
           </Link>
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
