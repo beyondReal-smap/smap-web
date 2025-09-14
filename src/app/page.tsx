@@ -286,7 +286,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.4s'}}>
               <div className="relative aspect-[4/3] overflow-hidden bg-yellow-50 border-b border-gray-200">
                 <Image
-                  src="/images/8.webp"
+                  src="/images/activelog.png"
                   alt="이동 경로 확인"
                   fill
                   style={{objectFit: 'contain', objectPosition: '50% 30%'}}
@@ -306,7 +306,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.5s'}}>
               <div className="relative aspect-[4/3] overflow-hidden bg-purple-50 border-b border-gray-200">
                 <Image
-                  src="/images/2.webp"
+                  src="/images/home.png"
                   alt="다중 사용자 관리"
                   fill
                   style={{objectFit: 'contain', objectPosition: '50% 60%'}}
@@ -326,7 +326,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden reveal" style={{transitionDelay: '0.6s'}}>
               <div className="relative aspect-[4/3] overflow-hidden bg-indigo-50 border-b border-gray-200">
                 <Image
-                  src="/images/7.webp"
+                  src="/images/interface.png"
                   alt="직관적인 인터페이스"
                   fill
                   style={{objectFit: 'contain', objectPosition: '50% 50%'}}
