@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -28,21 +28,17 @@ export default function RootLayout({
         />
         <style>{`
           :root {
-            --primary-color: #3b82f6;
-            --primary-dark: #2563eb;
-            --primary-light: #60a5fa;
-            --accent-color: #f97316;
-            --accent-dark: #ea580c;
-            --red-color: #ef4444;
-            --red-dark: #b91c1c;
-            --red-light: #f87171;
-            --gradient-primary: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            --gradient-accent: linear-gradient(135deg, #f97316, #c2410c);
-            --gradient-red: linear-gradient(135deg, #ef4444, #b91c1c);
+            --primary-violet: #8b5cf6;
+            --primary-fuchsia: #d946ef;
+            --primary-cyan: #06b6d4;
+            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #06b6d4 100%);
+            --gradient-button: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+            --gradient-hero: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f172a 100%);
           }
           
           body {
             overflow-x: hidden;
+            background: #0a0a0f;
           }
           
           .text-balance {
@@ -63,75 +59,10 @@ export default function RootLayout({
             background-image: var(--gradient-primary);
           }
           
-          .gradient-text-red {
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: var(--gradient-red);
-          }
-          
-          .button-glow {
-            position: relative;
-          }
-          
-          .button-glow::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 9999px;
-            background: var(--gradient-primary);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-          }
-          
-          .button-glow:hover::after {
-            opacity: 1;
-            filter: blur(8px);
-            transform: scale(1.1);
-          }
-          
-          .button-glow-red {
-            position: relative;
-          }
-          
-          .button-glow-red::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 9999px;
-            background: var(--gradient-red);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-          }
-          
-          .button-glow-red:hover::after {
-            opacity: 1;
-            filter: blur(8px);
-            transform: scale(1.1);
-          }
-          
           /* 애니메이션 클래스들 */
           @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-          }
-          
-          @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-          }
-          
-          @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
           }
           
           @keyframes slideInUp {
@@ -139,32 +70,20 @@ export default function RootLayout({
             to { transform: translateY(0); opacity: 1; }
           }
           
-          @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+          @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(5deg); }
+            50% { transform: translate(-20px, 20px) rotate(-5deg); }
+            75% { transform: translate(20px, 10px) rotate(3deg); }
           }
           
-          @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-          }
-          
-          @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+          @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.5), 0 0 60px rgba(217, 70, 239, 0.3); }
           }
           
           .anim-fade-in {
             animation: fadeIn 0.8s ease forwards;
-          }
-          
-          .anim-slide-right {
-            animation: slideInRight 0.8s ease forwards;
-          }
-          
-          .anim-slide-left {
-            animation: slideInLeft 0.8s ease forwards;
           }
           
           .anim-slide-up {
@@ -172,18 +91,14 @@ export default function RootLayout({
           }
           
           .anim-pulse {
-            animation: pulse 2s infinite ease-in-out;
+            animation: pulse-glow 3s ease-in-out infinite;
           }
           
-          .anim-bounce {
-            animation: bounce 2s infinite ease-in-out;
+          .anim-float {
+            animation: float 20s ease-in-out infinite;
           }
           
-          .anim-rotate {
-            animation: rotate 8s linear infinite;
-          }
-          
-          /* 스크롤 애니메이션 - 우선순위 상향 조정 */
+          /* 스크롤 애니메이션 */
           .reveal {
             opacity: 1;
             transform: translateY(0);
@@ -201,21 +116,21 @@ export default function RootLayout({
             bottom: 20px;
             right: 20px;
             z-index: 100;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--gradient-button);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
             cursor: pointer;
             transition: all 0.3s ease;
           }
           
           .fixed-qr-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
           }
           
           .qr-popup {
@@ -223,10 +138,12 @@ export default function RootLayout({
             bottom: 90px;
             right: 20px;
             z-index: 99;
-            background: white;
-            border-radius: 12px;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
             padding: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             width: 320px;
             transform: translateY(20px);
             opacity: 0;
