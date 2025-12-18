@@ -17,7 +17,7 @@ export default function FeaturesPage() {
       tagColor: "bg-rose-500/80",
       title: "가족만의 프라이빗 공간",
       description: "초대제로 운영되는 안전한 그룹으로, 가족 구성원들만을 위한 비공개 그룹을 제공합니다.",
-      image: "/images/비공개그룹.webp",
+      image: "/images/icon_lock_3d.png",
       items: [
         { title: "초대제 운영 시스템", desc: "초대를 통해서만 가입할 수 있어 안전한 가족 공간을 보장합니다." },
         { title: "실시간 위치 공유", desc: "가족 구성원들은 언제 어디서나 서로의 위치를 실시간으로 확인할 수 있습니다." },
@@ -29,7 +29,7 @@ export default function FeaturesPage() {
       tagColor: "bg-orange-500/80",
       title: "최적의 이동 경로 안내",
       description: "현재 위치에서 다음 일정 장소까지 T-Map의 최적 경로를 바로 제공합니다.",
-      image: "/images/최적경로.webp",
+      image: "/images/icon_route_3d.png",
       items: [
         { title: "T-Map 연동 시스템", desc: "국내 최고의 내비게이션 서비스인 T-Map과 연동되어 정확한 경로를 제공합니다." },
         { title: "원클릭 길 안내", desc: "일정 장소까지 한 번의 클릭으로 바로 경로 안내를 시작할 수 있습니다." },
@@ -42,7 +42,7 @@ export default function FeaturesPage() {
       tagColor: "bg-amber-500/80",
       title: "가족 맞춤 스마트 알림",
       description: "입력된 일정과 장소를 기반으로 부모와 자녀 모두에게 최적화된 알림을 제공합니다.",
-      image: "/images/스마트알림.webp",
+      image: "/images/icon_notification_3d.png",
       items: [
         { title: "일정 알림 설정", desc: "학교, 학원, 특별 활동 등 중요한 일정 30분 전에 알림을 받을 수 있습니다." },
         { title: "위치 기반 알림", desc: "자녀가 지정된 안전 구역에 도착하거나 떠날 때 자동으로 알림을 받습니다." },
@@ -54,7 +54,7 @@ export default function FeaturesPage() {
       tagColor: "bg-emerald-500/80",
       title: "가족의 발자취 기록",
       description: "지난 2주 동안의 가족 이동 기록을 간편하게 조회할 수 있는 기능을 제공합니다.",
-      image: "/images/위치기록.webp",
+      image: "/images/icon_history_3d.png",
       items: [
         { title: "2주 기록 보관", desc: "최근 2주간의 이동 기록을 자동으로 저장하여 언제든지 확인할 수 있습니다." },
         { title: "상세 방문 정보", desc: "각 장소별 방문 시간, 체류 시간 등 상세한 정보를 제공합니다." },
@@ -67,7 +67,7 @@ export default function FeaturesPage() {
       tagColor: "bg-blue-500/80",
       title: "스마트 일정 관리",
       description: "부모님은 자녀의 일정을 한눈에 확인하고 직접 관리할 수 있습니다.",
-      image: "/images/스마트일정.webp",
+      image: "/images/icon_schedule_3d.png",
       items: [
         { title: "원격 일정 관리", desc: "부모님이 자녀의 일정을 원격으로 추가, 수정, 삭제할 수 있습니다." },
         { title: "통합 가족 캘린더", desc: "가족 구성원 전체의 일정을 한 화면에서 확인할 수 있습니다." },
@@ -79,7 +79,7 @@ export default function FeaturesPage() {
       tagColor: "bg-indigo-500/80",
       title: "유연한 그룹 관리",
       description: "그룹 유효 기간과 구성원의 가입 기간을 개별적으로 설정할 수 있습니다.",
-      image: "/images/그룹관리.webp",
+      image: "/images/icon_settings_3d.png",
       items: [
         { title: "기간별 설정", desc: "그룹의 전체 유효 기간과 각 구성원의 개별 가입 기간을 설정할 수 있습니다." },
         { title: "권한 관리", desc: "그룹 내 구성원별로 다양한 권한을 설정할 수 있습니다." },
@@ -92,7 +92,7 @@ export default function FeaturesPage() {
       tagColor: "bg-purple-500/80",
       title: "하루를 한눈에",
       description: "하루 동안의 일정 수, 이동 시간, 총 이동 거리를 한눈에 볼 수 있는 깔끔한 요약을 제공합니다.",
-      image: "/images/일일요약.webp",
+      image: "/images/icon_interface_3d.png",
       items: [
         { title: "일정 통계", desc: "하루 동안의 전체 일정 수와 완료된 일정 수를 통계로 보여줍니다." },
         { title: "이동 분석", desc: "총 이동 거리와 이동 시간을 보여주어 활동량을 파악할 수 있습니다." },

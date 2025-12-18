@@ -151,7 +151,7 @@ export default function Home() {
                 {/* Glow effect behind phone */}
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-500/30 to-fuchsia-500/30 blur-3xl scale-75"></div>
                 <Image
-                  src="/images/main.webp"
+                  src="/images/startup_hero_phone.png"
                   alt="SMAP 앱 화면"
                   width={600}
                   height={900}
@@ -245,7 +245,7 @@ export default function Home() {
             <div className="glass-card rounded-2xl overflow-hidden reveal" style={{ transitionDelay: '0.1s' }}>
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/main.png"
+                  src="/images/icon_location_3d.png"
                   alt="실시간 위치 확인"
                   fill
                   style={{ objectFit: 'contain', objectPosition: 'center' }}
@@ -266,7 +266,7 @@ export default function Home() {
             <div className="glass-card rounded-2xl overflow-hidden reveal" style={{ transitionDelay: '0.2s' }}>
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/schedule.png"
+                  src="/images/icon_schedule_3d.png"
                   alt="일정 관리"
                   fill
                   style={{ objectFit: 'contain', objectPosition: 'center' }}
@@ -287,7 +287,7 @@ export default function Home() {
             <div className="glass-card rounded-2xl overflow-hidden reveal" style={{ transitionDelay: '0.3s' }}>
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/mylocation.png"
+                  src="/images/icon_safety_3d.png"
                   alt="안전구역 설정"
                   fill
                   style={{ objectFit: 'contain', objectPosition: 'center' }}
@@ -308,7 +308,7 @@ export default function Home() {
             <div className="glass-card rounded-2xl overflow-hidden reveal" style={{ transitionDelay: '0.4s' }}>
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/activelog.png"
+                  src="/images/icon_route_3d.png"
                   alt="이동 경로 확인"
                   fill
                   style={{ objectFit: 'contain', objectPosition: 'center' }}
@@ -329,7 +329,7 @@ export default function Home() {
             <div className="glass-card rounded-2xl overflow-hidden reveal" style={{ transitionDelay: '0.5s' }}>
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/home.png"
+                  src="/images/icon_family_3d.png"
                   alt="다중 사용자 관리"
                   fill
                   style={{ objectFit: 'contain', objectPosition: 'center' }}
@@ -350,7 +350,7 @@ export default function Home() {
             <div className="glass-card rounded-2xl overflow-hidden reveal" style={{ transitionDelay: '0.6s' }}>
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/interface.png"
+                  src="/images/icon_interface_3d.png"
                   alt="직관적인 인터페이스"
                   fill
                   style={{ objectFit: 'contain', objectPosition: 'center' }}
