@@ -264,7 +264,7 @@ export default function ClientLayout({
     <>
       {/* Glassmorphism Header */}
       <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled
-          ? 'bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/5'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-[#141413]/8 shadow-sm'
           : 'bg-transparent'
         }`}>
         <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -276,27 +276,27 @@ export default function ClientLayout({
               height={48}
               className="h-10 w-auto transition-transform group-hover:scale-110"
             />
-            <span className="text-xl font-bold gradient-text">SMAP</span>
+            <span className="text-xl font-bold text-[#1F1E1D] tracking-tight">SMAP</span>
           </Link>
 
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8">
               <li>
-                <Link href="/" className="text-white/70 hover:text-white transition-all duration-300 font-medium relative group">
+                <Link href="/" className="text-[#3D3D3A] hover:text-[#D97757] transition-all duration-300 font-medium relative group">
                   홈
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#D97757] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
               <li>
-                <Link href="/features" className="text-white/70 hover:text-white transition-all duration-300 font-medium relative group">
+                <Link href="/features" className="text-[#3D3D3A] hover:text-[#D97757] transition-all duration-300 font-medium relative group">
                   주요기능
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#D97757] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white/70 hover:text-white transition-all duration-300 font-medium relative group">
+                <Link href="/contact" className="text-[#3D3D3A] hover:text-[#D97757] transition-all duration-300 font-medium relative group">
                   문의하기
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#D97757] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
             </ul>
@@ -314,7 +314,7 @@ export default function ClientLayout({
 
           <button
             id="hamburgerButton"
-            className="md:hidden text-white p-2 z-50 rounded-lg hover:bg-white/10 transition-all"
+            className="md:hidden text-[#141413] p-2 z-50 rounded-lg hover:bg-[#F1EFE7] transition-all"
             ref={hamburgerButtonRef}
             aria-label={mobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
             aria-expanded={mobileMenuOpen}
@@ -341,28 +341,28 @@ export default function ClientLayout({
             top: menuPosition.top + 8,
             right: menuPosition.right,
             width: '200px',
-            boxShadow: '0 8px 32px rgba(139, 92, 246, 0.2)',
+            boxShadow: '0 12px 36px rgba(20, 20, 19, 0.12)',
           }}
         >
           <div className="p-4">
             <div className="space-y-2">
               <Link
                 href="/"
-                className="block text-white/80 hover:text-white text-sm font-medium transition py-2 px-3 rounded-lg hover:bg-white/5"
+                className="block text-[#141413] hover:text-[#D97757] text-sm font-medium transition py-2 px-3 rounded-lg hover:bg-[#F1EFE7]"
                 ref={mobileMenuHomeRef}
               >
                 홈
               </Link>
               <Link
                 href="/features"
-                className="block text-white/80 hover:text-white text-sm font-medium transition py-2 px-3 rounded-lg hover:bg-white/5"
+                className="block text-[#141413] hover:text-[#D97757] text-sm font-medium transition py-2 px-3 rounded-lg hover:bg-[#F1EFE7]"
                 ref={mobileMenuFeaturesRef}
               >
                 주요기능
               </Link>
               <Link
                 href="/contact"
-                className="block text-white/80 hover:text-white text-sm font-medium transition py-2 px-3 rounded-lg hover:bg-white/5"
+                className="block text-[#141413] hover:text-[#D97757] text-sm font-medium transition py-2 px-3 rounded-lg hover:bg-[#F1EFE7]"
                 ref={mobileMenuContactRef}
               >
                 문의하기
@@ -385,8 +385,8 @@ export default function ClientLayout({
         {children}
       </main>
 
-      {/* Modern Dark Footer */}
-      <footer className="bg-[#0a0a0f] border-t border-white/5 py-16">
+      {/* Modern Light Footer */}
+      <footer className="bg-[#F1EFE7] border-t border-[#141413]/8 py-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
             <div>
@@ -398,9 +398,9 @@ export default function ClientLayout({
                   height={40}
                   className="h-8 w-auto"
                 />
-                <span className="text-xl font-bold gradient-text">SMAP</span>
+                <span className="text-xl font-bold text-[#1F1E1D] tracking-tight">SMAP</span>
               </div>
-              <p className="text-white/50 text-sm leading-relaxed mb-6">
+              <p className="text-[#3D3D3A] text-sm leading-relaxed mb-6">
                 자녀의 위치와 일정을 확인하는<br />가장 신뢰할 수 있는 서비스
               </p>
               <div className="flex gap-4">
@@ -408,7 +408,7 @@ export default function ClientLayout({
                   href="https://www.facebook.com/smap.official.2024/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/50 hover:text-violet-400 hover:bg-violet-500/10 transition-all"
+                  className="w-10 h-10 rounded-xl bg-white border border-[#141413]/8 flex items-center justify-center text-[#73726C] hover:text-[#D97757] hover:bg-[#F1EFE7] hover:border-[#D97757]/30 transition-all shadow-sm"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -418,25 +418,25 @@ export default function ClientLayout({
             </div>
 
             <div>
-              <h3 className="text-white font-semibold mb-4">지원</h3>
+              <h3 className="text-[#141413] font-semibold mb-4">지원</h3>
               <ul className="space-y-3 text-sm">
-                <li><Link href="/contact" className="text-white/50 hover:text-violet-400 transition">문의하기</Link></li>
-                <li><Link href="https://schedulemap.notion.site/FAQ-8f37107b3c7c4307afd4297c7d71b5d5?pvs=4" target="_blank" className="text-white/50 hover:text-violet-400 transition">FAQ</Link></li>
-                <li><Link href="https://schedulemap.notion.site/SMAP-4afc9e6b71a6434cbcbf9dc4ec6f9d9d?pvs=4" target="_blank" className="text-white/50 hover:text-violet-400 transition">도움말</Link></li>
+                <li><Link href="/contact" className="text-[#3D3D3A] hover:text-[#D97757] transition">문의하기</Link></li>
+                <li><Link href="https://schedulemap.notion.site/FAQ-8f37107b3c7c4307afd4297c7d71b5d5?pvs=4" target="_blank" className="text-[#3D3D3A] hover:text-[#D97757] transition">FAQ</Link></li>
+                <li><Link href="https://schedulemap.notion.site/SMAP-4afc9e6b71a6434cbcbf9dc4ec6f9d9d?pvs=4" target="_blank" className="text-[#3D3D3A] hover:text-[#D97757] transition">도움말</Link></li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-white font-semibold mb-4">이용약관</h3>
+              <h3 className="text-[#141413] font-semibold mb-4">이용약관</h3>
               <ul className="space-y-3 text-sm">
-                <li><Link href="https://schedulemap.notion.site/30b32b5ad0bc4f99a39b28c0fe5f1de4?pvs=4" target="_blank" className="text-white/50 hover:text-violet-400 transition">서비스이용약관</Link></li>
-                <li><Link href="https://schedulemap.notion.site/2ac62e02f97b4d61945d68c2d89109e9?pvs=4" target="_blank" className="text-white/50 hover:text-violet-400 transition">개인정보처리방침</Link></li>
-                <li><Link href="https://schedulemap.notion.site/69cf94c6a04e471d8c3e3043f95baefb?pvs=4" target="_blank" className="text-white/50 hover:text-violet-400 transition">위치기반서비스약관</Link></li>
+                <li><Link href="https://schedulemap.notion.site/30b32b5ad0bc4f99a39b28c0fe5f1de4?pvs=4" target="_blank" className="text-[#3D3D3A] hover:text-[#D97757] transition">서비스이용약관</Link></li>
+                <li><Link href="https://schedulemap.notion.site/2ac62e02f97b4d61945d68c2d89109e9?pvs=4" target="_blank" className="text-[#3D3D3A] hover:text-[#D97757] transition">개인정보처리방침</Link></li>
+                <li><Link href="https://schedulemap.notion.site/69cf94c6a04e471d8c3e3043f95baefb?pvs=4" target="_blank" className="text-[#3D3D3A] hover:text-[#D97757] transition">위치기반서비스약관</Link></li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-white font-semibold mb-4">앱 다운로드</h3>
+              <h3 className="text-[#141413] font-semibold mb-4">앱 다운로드</h3>
               <div className="flex gap-3">
                 <div className="glass-card p-2 rounded-xl">
                   <Image
@@ -446,7 +446,7 @@ export default function ClientLayout({
                     height={80}
                     className="rounded-lg"
                   />
-                  <p className="text-xs text-white/50 text-center mt-1">iOS</p>
+                  <p className="text-xs text-[#73726C] text-center mt-1">iOS</p>
                 </div>
                 <div className="glass-card p-2 rounded-xl">
                   <Image
@@ -456,19 +456,19 @@ export default function ClientLayout({
                     height={80}
                     className="rounded-lg"
                   />
-                  <p className="text-xs text-white/50 text-center mt-1">Android</p>
+                  <p className="text-xs text-[#73726C] text-center mt-1">Android</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-white/5 mt-12 pt-8">
+          <div className="border-t border-[#141413]/8 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="text-white/40 text-sm">
-                <p><span className="text-white/60 font-medium">Beyond Real</span> | 대표: 정진 | 208-07-09695</p>
+              <div className="text-[#5E6577] text-sm">
+                <p><span className="text-[#141413] font-semibold">Beyond Real</span> | 대표: 정진 | 208-07-09695</p>
                 <p className="mt-1">경기도 김포시 김포한강9로75번길 66, 505-A237호</p>
               </div>
-              <p className="text-white/40 text-sm">© 2025 SMAP. All rights reserved.</p>
+              <p className="text-[#5E6577] text-sm">© 2025 SMAP. All rights reserved.</p>
             </div>
           </div>
         </div>
@@ -485,8 +485,8 @@ export default function ClientLayout({
       {/* QR Popup */}
       <div className="qr-popup" ref={qrPopupRef}>
         <div className="text-center">
-          <p className="font-bold text-white mb-2">앱 다운로드</p>
-          <p className="text-sm text-white/60 mb-4">QR코드를 스캔하여<br />SMAP앱을 다운로드 하세요.</p>
+          <p className="font-bold text-[#141413] mb-2">앱 다운로드</p>
+          <p className="text-sm text-[#3D3D3A] mb-4">QR코드를 스캔하여<br />SMAP앱을 다운로드 하세요.</p>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="glass-card p-3 rounded-xl">
               <Image
@@ -496,7 +496,7 @@ export default function ClientLayout({
                 height={100}
                 className="rounded-lg mx-auto"
               />
-              <span className="text-xs text-white/60 block mt-2">App Store</span>
+              <span className="text-xs text-[#3D3D3A] block mt-2 font-medium">App Store</span>
             </div>
             <div className="glass-card p-3 rounded-xl">
               <Image
@@ -506,7 +506,7 @@ export default function ClientLayout({
                 height={100}
                 className="rounded-lg mx-auto"
               />
-              <span className="text-xs text-white/60 block mt-2">Google Play</span>
+              <span className="text-xs text-[#3D3D3A] block mt-2 font-medium">Google Play</span>
             </div>
           </div>
           <a
@@ -520,16 +520,16 @@ export default function ClientLayout({
       </div>
 
       {/* PC Download Alert */}
-      <div id="pcDownloadAlert" className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+      <div id="pcDownloadAlert" className="fixed inset-0 bg-[#141413]/40 backdrop-blur-sm flex items-center justify-center z-50 hidden">
         <div className="glass-dark rounded-2xl p-8 max-w-md mx-4">
-          <h3 className="text-xl font-bold text-white mb-4">모바일 환경 필요</h3>
-          <p className="text-white/70 mb-6">SMAP 앱은 모바일 환경에서만 다운로드할 수 있습니다.</p>
+          <h3 className="text-xl font-bold text-[#141413] mb-4">모바일 환경 필요</h3>
+          <p className="text-[#3D3D3A] mb-6">SMAP 앱은 모바일 환경에서만 다운로드할 수 있습니다.</p>
           <div className="space-y-3 mb-6">
             <a
               href="https://play.google.com/store/apps/details?id=com.dmonster.smap"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-xl font-medium transition hover:shadow-lg hover:shadow-green-500/25"
+              className="flex items-center justify-center gap-2 w-full bg-[#D97757] text-white py-3 rounded-xl font-medium transition hover:bg-[#C25F42]"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z" />
@@ -540,7 +540,7 @@ export default function ClientLayout({
               href="https://apps.apple.com/kr/app/smap-%EC%9C%84%EC%B9%98%EC%B6%94%EC%A0%81-%EC%9D%B4%EB%8F%99%EA%B2%BD%EB%A1%9C-%EC%9D%BC%EC%A0%95/id6480279658"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-gray-700 to-gray-900 text-white py-3 rounded-xl font-medium transition hover:shadow-lg"
+              className="flex items-center justify-center gap-2 w-full bg-[#141413] text-white py-3 rounded-xl font-medium transition hover:bg-[#2E3358]"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z" />
@@ -549,7 +549,7 @@ export default function ClientLayout({
             </a>
           </div>
           <button
-            className="w-full bg-white/10 hover:bg-white/20 text-white py-3 rounded-xl transition font-medium"
+            className="w-full bg-[#EBE8DE] hover:bg-[#E7EAEF] text-[#141413] py-3 rounded-xl transition font-medium border border-[#141413]/8"
             ref={closeAlertBtnRef}
           >
             닫기

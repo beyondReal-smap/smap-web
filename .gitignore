@@ -81,3 +81,6 @@ Thumbs.db
 # 임시 파일
 *.tmp
 *.temp
+
+# 작업 아카이브 (보존용 이동 파일)
+/.archive/
