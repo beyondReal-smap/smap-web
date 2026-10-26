@@ -79,7 +79,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white">이메일</h3>
-                    <a href="mailto:admin@smap.site" className="text-white/60 hover:text-violet-400 transition">admin@smap.site</a>
+                    <a href="mailto:admin@aiagnt.kr" className="text-white/60 hover:text-violet-400 transition">admin@aiagnt.kr</a>
                   </div>
                 </div>
               </div>

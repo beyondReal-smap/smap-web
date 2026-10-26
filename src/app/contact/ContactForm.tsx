@@ -26,7 +26,7 @@ export default function ContactForm() {
     const message = (document.getElementById('message') as HTMLTextAreaElement).value;
 
     const body = `이름: ${name}%0D%0A이메일: ${email}%0D%0A문의 유형: ${inquiryType}%0D%0A메시지: ${message}`;
-    window.location.href = `mailto:admin@smap.site?subject=SMAP 문의사항&body=${body}`;
+    window.location.href = `mailto:admin@aiagnt.kr?subject=SMAP 문의사항&body=${body}`;
   };
 
   return (
